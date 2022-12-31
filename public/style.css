@@ -15,7 +15,7 @@ body {
 }
 
 h3 {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 hr {
@@ -27,18 +27,19 @@ hr {
 }
 
 code {
-  font-family: monospace;
-  padding: 2px;
-  color: black;
-  background-color: #fff;
+	font-family: monospace;
+	padding: 2px;
+	color: black;
+	background-color: #fff;
 }
 
 ul {
 	list-style-type: none;
+	padding: 0;
 }
 
 li {
-  margin-bottom: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 a {
