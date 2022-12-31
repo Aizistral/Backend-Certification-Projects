@@ -81,7 +81,7 @@ app.get("/api/users", (req, res) => {
 });
 
 app.post("/api/users/:userid/exercises", (req, res) => {
-	const userId = req.params.userid;
+	const userid = req.params.userid;
 	const description = req.body.description;
 	const duration = parseInt(req.body.duration);
 	const date = req.body.date ? new Date(req.body.date) : new Date();
@@ -89,10 +89,10 @@ app.post("/api/users/:userid/exercises", (req, res) => {
 	if (!validateString(description, "Invalid Description", res)) return;
 	if (!validateNumber(duration, "Invalid Duration", res)) return;
 	if (!validateDate(date, "Invalid Date", res)) return;
-	if (!validateString(userId, "Invalid UserId", res)) return;
+	if (!validateString(userid, "Invalid UserId", res)) return;
 
 	const newExercise = new Exercise({
-		userId: userId,
+		userid: userid,
 		description: description,
 		duration: duration,
 		date: date
@@ -102,7 +102,7 @@ app.post("/api/users/:userid/exercises", (req, res) => {
 		if (err) return errorResponse(res);
 
 		return res.json({
-			userid: data.userId,
+			_id: data.userId,
 			username: data.username,
 			date: data.date.toDateString(),
 			duration: data.duration,
@@ -121,7 +121,7 @@ app.get("/api/users/:userid/logs", (req, res) => {
 		if (err) return errorResponse(res);
 		if (!user) return errorResponse(res, "User not found", 404);
 
-		Exercise.find({ userId: userid }, (err, log) => {
+		Exercise.find({ userid: userid }, (err, log) => {
 			if (err) return errorResponse(res);
 
 			if (from) {
