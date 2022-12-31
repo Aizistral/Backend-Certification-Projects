@@ -11,9 +11,13 @@ app.get("/", function (req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
 
+function isUnixTime(string) {
+	return !isNaN(string) && !isNaN(parseInt(string));
+}
+
 app.get("/api/:date_string?", function (req, res) {
 	let parameter = req.params.date_string;
-	let date = parameter ? parameter.includes('-') ? new Date(parameter) : new Date(parseInt(parameter)) : new Date();
+	let date = parameter ? isUnixTime(parameter) ? new Date(parseInt(parameter)) : new Date(parameter) : new Date();
 
 	if (date.toString() === 'Invalid Date') {
 		res.json({ error: 'Invalid Date' });
