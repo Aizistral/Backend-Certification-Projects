@@ -21,4 +21,5 @@ app.post("/api/fileanalyse", (req, res) => {
 	});
 });
 
-app.listen(process.env.PORT, () => console.log("IT'S ALIVE on port " + process.env.PORT));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log("IT'S ALIVE on port " + port));
