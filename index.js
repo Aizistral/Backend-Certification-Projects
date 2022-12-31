@@ -91,24 +91,29 @@ app.post("/api/users/:userid/exercises", (req, res) => {
 	if (!validateDate(date, "Invalid Date", res)) return;
 	if (!validateString(userid, "Invalid UserId", res)) return;
 
-	const newExercise = new Exercise({
-		userid: userid,
-		description: description,
-		duration: duration,
-		date: date
-	});
-
-	newExercise.save((err, data) => {
+	User.findById(userid, (err, user) => {
 		if (err) return errorResponse(res);
+		if (!user) return errorResponse(res, "User not found", 404);
 
-		return res.json({
-			_id: data.userId,
-			username: data.username,
-			date: data.date.toDateString(),
-			duration: data.duration,
-			description: data.description
+		const newExercise = new Exercise({
+			userid: userid,
+			description: description,
+			duration: duration,
+			date: date
 		});
-	});
+
+		return newExercise.save((err, data) => {
+			if (err) return errorResponse(res);
+
+			return res.json({
+				_id: user._id,
+				username: user.username,
+				date: data.date.toDateString(),
+				duration: data.duration,
+				description: data.description
+			});
+		});
+	}
 });
 
 app.get("/api/users/:userid/logs", (req, res) => {
