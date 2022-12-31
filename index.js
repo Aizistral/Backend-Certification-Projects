@@ -113,7 +113,7 @@ app.post("/api/users/:userid/exercises", (req, res) => {
 				description: data.description
 			});
 		});
-	}
+	});
 });
 
 app.get("/api/users/:userid/logs", (req, res) => {
