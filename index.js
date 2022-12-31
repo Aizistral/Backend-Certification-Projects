@@ -73,6 +73,13 @@ app.post("/api/users", (req, res) => {
 	});
 });
 
+app.get("/api/users", (req, res) => {
+	User.find({}, (err, users) => {
+		if (err) return errorResponse(res);
+		return res.json(users);
+	});
+});
+
 app.post("/api/users/:userid/exercises", (req, res) => {
 	const userId = req.params.userid;
 	const description = req.body.description;
