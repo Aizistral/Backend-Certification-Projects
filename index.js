@@ -69,13 +69,13 @@ app.post('/api/shorturl', (req, res) => {
 		dns.lookup(new URL(url).hostname, err => {
 			if (err)
 				return res.status(400).json({ error: 'invalid url' });
-		});
 
-		createShortURL(url, (err, data) => {
-			if (err)
-				return res.status(500).json({ error: 'internal error' });
-			else
-				return res.json({ original_url: data.original_url, short_url: data.short_url });
+			createShortURL(url, (err, data) => {
+				if (err)
+					return res.status(500).json({ error: 'internal error' });
+				else
+					return res.json({ original_url: data.original_url, short_url: data.short_url });
+			});
 		});
 	}
 });
