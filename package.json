@@ -4,16 +4,28 @@
 	"description": "A REST API project, part of Free Code Camp's curriculum",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index.js"
+		"start": "node index.js",
+		"dev": "nodemon index.js"
 	},
 	"dependencies": {
+		"body-parser": "^1.20.1",
+		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.16.4",
-		"cors": "^2.8.5"
+		"mongoose": "^6.8.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.20"
 	},
 	"repository": {
-		"url": "https://github.com/freeCodeCamp/boilerplate-project-exercisetracker"
+		"type": "git",
+		"url": "https://github.com/Aizistral/Backend-Certification-Projects.git"
 	},
+	"bugs": {
+		"url": "https://github.com/Aizistral/Backend-Certification-Projects/issues"
+	},
+	"homepage": "https://github.com/Aizistral/Backend-Certification-Projects#readme",
+	"author": "Aizistral <admin@aizistral.com>",
 	"license": "MIT",
 	"keywords": [
 		"node",
