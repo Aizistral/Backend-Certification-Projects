@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api/whoami', function (req, res) {
-	let ipaddress = req.ip ? req.ip : "Unknown";
+	let ipaddress = req.ip ? req.ip.replace('::ffff:', '') : "Unknown";
 	let language = req.headers['accept-language'] ? req.headers['accept-language'] : "Unknown";
 	let software = req.headers['user-agent'] ? req.headers['user-agent'] : "Unknown";
 
