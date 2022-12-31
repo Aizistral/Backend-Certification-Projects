@@ -1,0 +1,31 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.1",
+  "description": "API project for freeCodeCamp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dns": "^0.2.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aizistral/Backend-Certification-Projects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aizistral/Backend-Certification-Projects/issues"
+  },
+  "homepage": "https://github.com/Aizistral/Backend-Certification-Projects#readme",
+  "author": "Aizistral <admin@aizistral.com>",
+  "license": "MIT"
+}
