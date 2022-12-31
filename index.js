@@ -15,7 +15,7 @@ const userSchema = new Schema({
 });
 
 const exerciseSchema = new Schema({
-	userId: { type: String, required: true },
+	userid: { type: String, required: true },
 	description: { type: String, required: true },
 	duration: { type: Number, required: true },
 	date: { type: Date, required: true }
